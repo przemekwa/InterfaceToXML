@@ -1,10 +1,11 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Collections;
 using System.Xml;
 using System.IO;
-using System.Collections;
 using System.Linq;
+using System.Xml.Serialization;
 
 namespace Test
 {
@@ -27,45 +28,53 @@ namespace Test
     {
         const string XMLFILENAME = "test.xml";
 
+        List<IPerson> list;
+
+        [TestInitialize]
+        public void Initialize()
+        {
+            this.list = new List<IPerson>();
+            
+            list.Add(new Person { FirstName = "Przemek" });
+            list.Add(new Person { FirstName = "Jola" });
+        }
+
         [TestMethod]
         public void Serialize()
         {
-            var lista = new List<IPerson>();
+            const string correctFile = "<?xml version=\"1.0\" encoding=\"utf-8\"?><IPersonRoot><IPerson><FirstName>Przemek</FirstName></IPerson><IPerson><FirstName>Jola</FirstName></IPerson></IPersonRoot>";
 
-            lista.Add(new Person { FirstName = "Przemek" });
-            lista.Add(new Person { FirstName = "Jola" });
-
-            InterfaceToXML.XMLInterfaceSerialization.Serialize<IPerson>(lista, XmlWriter.Create(XMLFILENAME));
-
-            const string endResult = "<?xml version=\"1.0\" encoding=\"utf-8\"?><IPersonRoot><IPerson><FirstName>Przemek</FirstName></IPerson><IPerson><FirstName>Jola</FirstName></IPerson></IPersonRoot>";
+            InterfaceToXML.XMLInterfaceSerialization.Serialize<IPerson>(list, XmlWriter.Create(XMLFILENAME));
 
             StreamReader sr = new StreamReader(XMLFILENAME);
 
-            var actualResult = sr.ReadLine();
+            var resultFile = sr.ReadLine();
 
-            Assert.AreEqual(endResult, actualResult);
+            Assert.AreEqual(correctFile, resultFile);
         }
 
 
         [TestMethod]
         public void Deserialize()
         {
-            var endResult = new List<IPerson>();
-
-            endResult.Add(new Person { FirstName = "Przemek" });
-            endResult.Add(new Person { FirstName = "Jola" });
-
             var actualResult = InterfaceToXML.XMLInterfaceSerialization.Deserialize(typeof(IPerson), XMLFILENAME);
 
-            Assert.AreEqual(endResult.Count, endResult.Count);
-
-            foreach (var end in endResult)
+            
+            foreach (var end in list)
             {
                 Assert.AreEqual(true, actualResult.Cast<IPerson>().Any(l => l.FirstName == end.FirstName));
             }
+        }
 
 
-            
+        [TestMethod]
+        [ExpectedException(typeof(NotSupportedException),"Cannot serialize interface Test.IPerson.")]
+        public void SerializerError()
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(List<IPerson>));
+
+            xml.Serialize(XmlWriter.Create(XMLFILENAME), list);
+
         }
     }
 }
