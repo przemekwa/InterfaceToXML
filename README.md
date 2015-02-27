@@ -1,7 +1,7 @@
 # InterfaceToXML
 Biblioteka serializuje i deserializuje interfejsy w C#
 
-Biblioteka odpowiada na pytanie czy można serializować interfejsy w C#. Cały artykuł dotyczy tego tematu znajduje sie http://blogprogramisty.net/czy-mozna-serializowac-interfejsy-c-mozna/ 
+Biblioteka odpowiada na pytanie czy można serializować interfejsy w C#. Cały artykuł dotyczący tego tematu znajduje się tutaj http://blogprogramisty.net/czy-mozna-serializowac-interfejsy-c-mozna/ 
 
 Biblioteka ma na celu pokazać, że:
 
