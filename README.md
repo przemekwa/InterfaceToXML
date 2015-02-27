@@ -6,7 +6,7 @@ Biblioteka odpowiada na pytanie czy można serializować interfejsy w C#. Cały 
 Biblioteka ma na celu pokazać, że:
 
 * można serializować interfejsy
-* można tworzyć dynamiczne typy danych. Czyli taki typy, które powstają już w trakcie działania programu. Biblioteka pokazuje jak można używać kodu pośredniego do tworzenia właściwości i poł w klasie.
+* można tworzyć dynamiczne typy danych. Czyli takie typy, które powstają już w trakcie działania programu. Biblioteka pokazuje jak można używać kodu pośredniego do tworzenia właściwości i poł w klasie.
 
 
 ##Szybki start
