@@ -1,21 +1,21 @@
 # InterfaceToXML
 Biblioteka serializuje i deserializuje interfejsy w C#
 
-Biblioteka jest odpowiedzia na pytanie czy można serializować interfejsy w C#. Cały artykuł dotyczcy tego tematu znajduje sie http://blogprogramisty.net/czy-mozna-serializowac-interfejsy-c-mozna/ 
+Biblioteka jest odpowiada na pytanie czy można serializować interfejsy w C#. Cały artykuł dotyczy tego tematu znajduje sie http://blogprogramisty.net/czy-mozna-serializowac-interfejsy-c-mozna/ 
 
-Biblioteka ma na celu pokazac, że:
+Biblioteka ma na celu pokazać, że:
 
 * można serializować interfejsy
-* można tworzyć dynamiczne typy danych. Czyli taki typy, które powstaju już w trakcie działania programu. Biblioteka pokazuje jak można używać kodu pośredniego do tworzenia właściwości i poł w klasie.
+* można tworzyć dynamiczne typy danych. Czyli taki typy, które powstają już w trakcie działania programu. Biblioteka pokazuje jak można używać kodu pośredniego do tworzenia właściwości i poł w klasie.
 
 
 ##Szybki start
 
 Biblioteka InterfaceToXML składa się z 2 metod statycznych w klasie statycznej XMLInterfaceSerialization
 
-1. Serialize<T>(IEnumerable<T> list, XmlWriter xml) - zajmuje się serializacją listy do prostego xml-a. UWAGA: Projekt ma charakter edykacyjny i opiera się na serializacji prosrych typów danych.
+1. Serialize<T>(IEnumerable<T> list, XmlWriter xml) - zajmuje się serializacją listy do prostego xml-a. UWAGA: Projekt ma charakter edukacyjny i opiera się na typach prostych typów danych.
 
-Przykład użycia (wszystkie przykłady tutaj są dostepne w bibliotece w projekcie Testy)
+Przykład użycia (wszystkie przykłady tutaj są dostępne w bibliotece w projekcie Testy)
 
 Jeśli mamy taki interfejs:
 ```
@@ -38,7 +38,7 @@ To możemy ją serializować do postaci:
   </IPerson>
 </IPersonRoot>
 ```
-2. XMLInterfaceSerialization.Deserialize(typeof(IPerson), XMLFILENAME) - metoda zajume się deserializacją pliku xml do postaci listy obiektów implementujących interfejs. 
+2. XMLInterfaceSerialization.Deserialize(typeof(IPerson), XMLFILENAME) - metoda zajmuje się deserializacją pliku xml do postaci listy obiektów implementujących interfejs. 
 
 Na wyjściu dostaniemy taką listę:
 ```
@@ -48,13 +48,3 @@ Na wyjściu dostaniemy taką listę:
     list.Add(new object { FirstName = "Jola" });
 ```
 UWAGA: Cały myk polega na tym, że zakładamy, że przed serializacją nie mamy dostępu do obiektu, który implementuje interfejs.
-
-            
-
-    
-
-
-    
-
-
-   
