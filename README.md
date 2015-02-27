@@ -24,7 +24,7 @@ Jeśli mamy taki interfejs:
         string FirstName { get; set; }
     }
 ```
-i taka listę ```var list =  new List<IPerson>();```
+i taka listę ```var list =  new List<IPerson>();``` z 2 obiektami implementującymi interfejs ```IPerson```
 
 To możemy ją serializować do postaci:
 ```
