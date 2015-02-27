@@ -13,7 +13,7 @@ Biblioteka ma na celu pokazać, że:
 
 Biblioteka InterfaceToXML składa się z 2 metod statycznych w klasie statycznej XMLInterfaceSerialization
 
-1. Serialize<T>(IEnumerable<T> list, XmlWriter xml) - zajmuje się serializacją listy do prostego xml-a. UWAGA: Projekt ma charakter edukacyjny i opiera się na typach prostych typów danych.
+1. Serialize<T>(IEnumerable<T> list, XmlWriter xml) - zajmuje się serializacją listy do prostego xml-a. UWAGA: Projekt ma charakter edukacyjny i opiera się na typach prostych.
 
 Przykład użycia (wszystkie przykłady tutaj są dostępne w bibliotece w projekcie Testy)
 
