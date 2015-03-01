@@ -13,7 +13,7 @@ Biblioteka ma na celu pokazać, że:
 
 Biblioteka InterfaceToXML składa się z 2 metod statycznych w klasie statycznej XMLInterfaceSerialization
 
-1. Serialize<T>(IEnumerable<T> list, XmlWriter xml) - zajmuje się serializacją listy do prostego xml-a. UWAGA: Projekt ma charakter edukacyjny i opiera się na typach prostych.
+1. ```Serialize<T>(IEnumerable<T> list, XmlWriter xml)``` - zajmuje się serializacją listy do prostego xml-a. UWAGA: Projekt ma charakter edukacyjny i opiera się na typach prostych.
 
 Przykład użycia (wszystkie przykłady tutaj są dostępne w bibliotece w projekcie Testy)
 
@@ -38,7 +38,7 @@ To możemy ją serializować do postaci:
   </IPerson>
 </IPersonRoot>
 ```
-2. XMLInterfaceSerialization.Deserialize(typeof(IPerson), XMLFILENAME) - metoda zajmuje się deserializacją pliku xml do postaci listy obiektów implementujących interfejs. 
+2. ```XMLInterfaceSerialization.Deserialize(typeof(IPerson), XMLFILENAME)``` - metoda zajmuje się deserializacją pliku xml do postaci listy obiektów implementujących interfejs. 
 
 Na wyjściu dostaniemy taką listę:
 ```
